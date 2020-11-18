@@ -1,0 +1,12 @@
+@import './app/scss/variables';
+
+*{
+  margin: 0 ;
+  box-sizing: border-box;
+}
+
+
+body{
+  margin: 0 auto;
+  background: $bg-default;
+}

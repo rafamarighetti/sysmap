@@ -1,0 +1,24 @@
+<app-header (term)="searchHeader($event)"></app-header>
+<div class="users">
+  <div class="user-table">
+    <table cellspacing="0">
+      <thead>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Favorito</th>
+        <th></th>
+      </thead>
+      <tr class="user-row" *ngFor="let user of users | filter: term">
+        <td> {{user.username}} </td>
+        <td>{{user.email}} </td>
+        <td>
+          <app-favorite [users]="users" [id]="user.id"></app-favorite>
+        </td>
+        <td class="button-area">
+          <a [routerLink]="user.id"><button>Detalhes</button></a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+

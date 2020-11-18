@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="user-info">
+  <div class="user-info-box">
+    <p><strong>Nome: </strong>{{ user.name }}</p>
+    <p><strong>Telefone: </strong>{{ user.phone }}</p>
+    <p><strong>Site: </strong>{{ user.website }}</p>
+    <p><strong>Empresa: </strong>{{ user.company.name }}</p>
+  </div>
+</div>
+
+<div class="container-map">
+  <p class="address"><strong>Endereço:</strong> {{user.address.street}}, {{user.address.suite}} <strong>CEP:</strong> {{user.address.zipcode}}</p>
+  <google-map
+  height="500px"
+  width="100%"
+  [zoom]="zoom"
+  [center]="center"
+  [options]="options"
+>
+
+<map-marker
+    [position]="this.center"
+    [label]="user.address.street"
+    [title]="user.address.street"
+  >
+</map-marker>
+
+</google-map>
+
+<!-- Use custom zoom buttons -->
+<button (click)="zoomIn()"> Zoom in</button>
+<button (click)="zoomOut()">Zoom out</button>
+</div>
